@@ -1,4 +1,4 @@
-package com.roshan.linkedlist;
+package ds.linkedlist;
 
 public interface List<T> {
 

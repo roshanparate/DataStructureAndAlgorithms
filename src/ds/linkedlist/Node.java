@@ -1,4 +1,4 @@
-package com.roshan.linkedlist;
+package ds.linkedlist;
 
 public class Node<T extends Comparable<T>> {
 	 private T data;
@@ -26,7 +26,6 @@ public class Node<T extends Comparable<T>> {
 
 	@Override
 	public String toString() {
-		return this.data.toString();
+		return "Node [data=" + data + "]";
 	}
-
 }
