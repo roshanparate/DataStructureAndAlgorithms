@@ -2,7 +2,7 @@ package ds.linkedlist;
 
 public class App {
 
-	public static void main(String... arg){
+	public static <T> void main(String... arg){
 		MyLinkedList<Integer> linkedList = new MyLinkedList<>();
 		linkedList.insert(12);
 		linkedList.insert(110);
@@ -10,7 +10,27 @@ public class App {
 		linkedList.insert(-652);
 		linkedList.insert(55);
 		
+		Node n = new Node(1);
+		Node n1 = new Node(2);
+		Node n2 = new Node(3);
+		n1.setNextNode(n2);
+		n.setNextNode(n1);
+		
+		Node n3 = new Node(4);
+		Node n4 = new Node(5);
+		Node n5 = new Node(6);
+		n4.setNextNode(n5);
+		n3.setNextNode(n4);
+		
 		System.out.println(linkedList.size());
+		
+		Node no = appendLists(n,n3);
+		Node actualNode = n;
+		while(actualNode != null){
+			System.out.print(actualNode.getData() + " -> ");
+			actualNode = actualNode.getNextNode();
+		}
+		System.out.println();
 		
 		linkedList.remove(89);
 		
@@ -35,4 +55,15 @@ public class App {
 		
 	}
 	
+	static Node appendLists (Node list1, Node list2) {
+		Node prv = null;
+		Node head = list1;
+		while(head != null){
+			prv = head;
+			head = head.getNextNode();
+		}
+
+		prv.setNextNode(list2);
+		return list1;
+	}
 }
